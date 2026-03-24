@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Дмитрий Карагеоз",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 67.02, "left": -43.43, "attrs": {} },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": -63, "left": -201.5, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -25.66,
+      "left": 105.83,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:8", "rtc1:SDA", "green", [ "h-182.45", "v-230.1" ] ],
+    [ "rtc1:SCL", "esp:9", "green", [ "h-48", "v249.4" ] ],
+    [ "rtc1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "rtc1:5V", "esp:5V", "red", [ "h115.2", "v326" ] ],
+    [ "esp:GND.2", "oled1:GND", "black", [ "v-182.4", "h96" ] ],
+    [ "oled1:VCC", "esp:5V", "red", [ "h-76.65", "v336" ] ],
+    [ "esp:9", "oled1:SCL", "green", [ "h307.15", "v-326.4", "h-105.9" ] ],
+    [ "esp:8", "oled1:SDA", "green", [ "h287.95", "v-268.8", "h-76.87" ] ]
+  ],
+  "dependencies": {}
+}
